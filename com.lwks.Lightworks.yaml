@@ -67,11 +67,7 @@ modules:
       - desktop-file-edit --set-key='Exec' --set-value='/app/bin/lightworks' /app/share/applications/com.lwks.Lightworks.desktop
     sources:
       - type: file
-        url: https://cdn.lwks.com/releases/2023.2/lightworks_2023.2_r146752.deb
-        dest-filename: lightworks.deb
-        sha512: 19ca35fedc2517cd0898004f48a4005f15ac382aa6e785903f0b943113310e857a42945e129fe75b899ff1ce943a213d6eb44d82da85a3a86dcef65e99c9d763 
-        only-arches:
-          - x86_64
+        path: lightworks.deb
       - type: file
         path: lightworks.sh
 cleanup-commands:
