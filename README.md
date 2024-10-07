@@ -1,5 +1,5 @@
 # Lightworks Flatpak
-This is the Lightworks fork of the repository created by kekkoudesu here https://github.com/kekkoudesu/lightworks-flatpak whose contribution is gratully acknowleded. As such it is a work in progress and we will endeavour to maintain and update flatpak release here.
+This is the Lightworks fork of the repository created by kekkoudesu here https://github.com/kekkoudesu/lightworks-flatpak whose contribution is gratefully acknowleded. As such it is a work in progress and we will endeavour to maintain and update flatpak releases here.
 
 Following [some discussion on the LWKS
 forum](https://forum.lwks.com/threads/lightworks-as-a-flatpak.250870/), I
