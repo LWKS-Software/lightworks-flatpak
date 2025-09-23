@@ -26,20 +26,38 @@ modules:
       - type: archive
         url: http://downloads.sourceforge.net/twolame/twolame-0.4.0.tar.gz
         sha256: cc35424f6019a88c6f52570b63e1baf50f62963a3eac52a03a800bb070d7c87d
+
+  - name: libsndio
+    buildsystem: autotools
+    sources:
+      - type: archive
+        url: https://www.sndio.org/sndio-1.7.0.tar.gz
+        sha256: dda4e3d0879423ed57923975ba74668cbb9299939cad579b0ac64a4b01535552
+    post-install:
+      - ln -s libsndio.so.7.1 /app/lib/libsndio.so.7
+
   - name: portaudio
     buildsystem: cmake-ninja
     config-opts:
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+      - -DBUILD_SHARED_LIBS=ON
+      - -DBUILD_STATIC_LIBS=OFF
+      - -DPA_BUILD_TESTS=OFF
+      - -DPA_BUILD_EXAMPLES=OFF
     sources:
       - type: archive
         url: https://github.com/PortAudio/portaudio/archive/refs/tags/v19.7.0.tar.gz
         sha256: 5af29ba58bbdbb7bbcefaaecc77ec8fc413f0db6f4c4e286c40c3e1b83174fa0
+
   - name: libedit
     buildsystem: autotools
+    config-opts:
+      - --disable-static
     sources:
       - type: archive
         url: https://thrysoee.dk/editline/libedit-20230828-3.1.tar.gz
         sha256: 4ee8182b6e569290e7d1f44f0f78dac8716b35f656b76528f699c69c98814dad
+
   - name: blackmagiclibs # bundle decklink libraries
     buildsystem: simple
     build-commands:
