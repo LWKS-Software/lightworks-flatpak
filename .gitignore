@@ -1,3 +1,4 @@
 .flatpak-builder/
 repo/
 Blackmagic_Desktop_Video_Linux*.tar
+lightworks.deb
