@@ -15,8 +15,8 @@ finish-args:
   - --socket=pulseaudio
   - --device=all # udev rules for Lightworks console don't work in Flatpak, so just give Lightworks access to all devices
   - --filesystem=host
-  - --env=LD_LIBRARY_PATH=/app/lib:/app/lib/lightworks:/app/lib/blackmagic
-  - --env=LD_PRELOAD=libmimalloc.so:libDeckLinkAPI.so
+  - --env=LD_LIBRARY_PATH=/app/lib:/app/lib/lightworks:/app/lib/lightworks/BlackmagicRawAPI:/app/lib/blackmagic
+  - --env=LD_PRELOAD=libmimalloc.so
 modules:
   - shared-modules/glu/glu-9.json
   - name: twolame
@@ -61,11 +61,11 @@ modules:
   - name: blackmagiclibs # bundle decklink libraries
     buildsystem: simple
     build-commands:
-      - tar -xf other/x86_64/desktopvideo-14.2a1-x86_64.tar.gz
-      - install -Dm644 --target-directory=/app/lib/blackmagic desktopvideo-14.2a1-x86_64/usr/lib/{*.so,blackmagic/DesktopVideo/libc++*.so.1}
+      - tar -xf other/x86_64/desktopvideo-15.1a1-x86_64.tar.gz
+      - install -Dm644 --target-directory=/app/lib/blackmagic desktopvideo-15.1a1-x86_64/usr/lib/*.so
     sources:
       - type: archive
-        path: Blackmagic_Desktop_Video_Linux_14.2.tar.tar
+        path: Blackmagic_Desktop_Video_Linux_15.1.tar
   - name: lightworks
     buildsystem: simple
     build-commands:
