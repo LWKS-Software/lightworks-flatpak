@@ -75,7 +75,7 @@ modules:
       - rm -r control.tar.xz data.tar.xz debian-binary
       - install -Dm755 lightworks.sh /app/bin/lightworks
       - cp -r usr/lib/* /app/lib/
-      - install -Dm644 usr/share/applications/com.lwks.Lightworks.desktop "${FLATPAK_DEST}/share/applications/com.lwks.Lightworks.desktop"
+      - install -Dm644 "$(ls usr/share/applications/com.lwks.Lightworks.desktop usr/share/applications/lightworks.desktop 2>/dev/null | head -n1)" "${FLATPAK_DEST}/share/applications/com.lwks.Lightworks.desktop"
       - mv usr/share/doc/* /app/share/doc/
       - mv usr/share/fonts/* /app/share/fonts/
       - mkdir /app/share/lightworks
